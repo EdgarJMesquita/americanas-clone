@@ -1,6 +1,6 @@
 (()=>{
     let index = 0;
-    const arrows = document.querySelectorAll('.arrow');
+    const arrows = document.querySelectorAll('.arrow-ofertas');
     const carrossel = document.querySelector('#carrossel-img');
     const images = [
         '06.06_home_amundo_destaque_desk_vemai.webp',
@@ -20,8 +20,8 @@
     arrows.forEach(arrow=>{
         arrow.addEventListener('click',(e)=>{
            
-            index += e.target.dataset.name==1? 1:-1
-
+            index +=Number(e.target.dataset.name)
+            
             if(index<0) index = images.length-1
             if(index>images.length-1) index = 0 
            
@@ -32,5 +32,28 @@
     setInterval(()=>{
         arrows[0].click()
     },20000)
+    
+    
+    const CategoriasArrows = document.querySelectorAll('.arrow-categorias')
+    const sliders = document.querySelector('.sliders-categorias')
+
+    const $sliders = {
+        index:0,
+        move:(a)=>{
+            index+=Number(a)
+            
+            console.log(`a:${a} index:${index}`)
+
+            if(index<=-3) index = 0
+            if(index==1) index=-2
+
+            sliders.style.transform=`translateX(${index*1250}px)`
+            console.log(sliders.style.transform)
+        }
+    }
+
+    CategoriasArrows.forEach(arrow=>{
+        arrow.addEventListener('click',(e)=>$sliders.move(e.target.dataset.name))
+    })
     
 })();
