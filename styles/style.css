@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 body {
@@ -28,7 +27,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.30rem 10%;
+    padding: 1.2rem 10%;
 }
 
 .search-box {
@@ -79,6 +78,7 @@ body {
 
 .icons {
     display: flex;
+    align-items: center;
     gap: 2rem;
 }
 .store {
@@ -87,13 +87,14 @@ body {
 }
 
 .heart {
-    height: 1.9rem;
-    width: 1.9rem;
+    height: 1.6625rem;
+    width: 1.9125rem;
 }
 
 .basket {
-    height: 2.2rem;
-    width: 2.2rem;
+    height: 2.0625rem;
+    width: 2.0625rem;
+    margin-bottom: 0.1rem;
 }
 
 .sub-links {
@@ -106,10 +107,10 @@ body {
     justify-content: space-between;
 }
 
-.sub-links div:first-child {
+.informe-cep {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    gap: .3rem;
 }
 
 .main-links {
@@ -154,8 +155,8 @@ body {
 
 .drop-menu {
     display: flex;
-    /*padding: .5rem 0.5rem; */
     padding: 1rem;
+    align-items: center;
 }
 
 .burger div {
@@ -163,6 +164,7 @@ body {
     width: 21px;
     background-color: #e60014;
 }
+
 .burger div:nth-child(2){
     margin: 5px 0;
 }
@@ -174,8 +176,10 @@ body {
     font-size: .875rem;
     
 }
+
 #arrow-down {
-    transform: rotate(90deg);
+    height: .5rem;
+    width: .5rem;
 }
 
 .departamentos-links a {
@@ -184,6 +188,11 @@ body {
     padding: .9rem 1rem;
     font-size: .875rem;
 
+}
+
+.departamentos-links a:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s;
 }
 
 .main-content {
@@ -196,11 +205,24 @@ body {
     margin: .1rem 0;
 }
 
-.carrossel {
+.carrossel-ofertas-container {
     width: 100%;
     height: 19.56rem;
     position: relative;
     margin-top: .7rem;
+}
+
+.carrossel-ofertas {
+    overflow: hidden;
+}
+
+.sliders-ofertas{
+    display: flex;
+    transition: transform .5s;
+}
+.sliders-ofertas img {
+    width: 78.125rem;
+    
 }
 
 .arrow{
@@ -217,25 +239,21 @@ body {
     font-size: 0;
     user-select: none;
 }
+
 .arrow img {
     height: 1.5rem;
     width: 1.5rem;
 
 }
-.arrow:first-child img{
+
+.arrow:nth-child(2) img{
     transform: translateX(20%);
 }
+
 .arrow:last-child img{
-   transform: translateX(-20%);
+    transform: translateX(-20%);
 }
-.arro div {
-    display: inline-block;
-    height: 1.1rem;
-    width: 1.1rem;
-    border-top: .3rem solid red;
-    border-right: .3rem solid red;
-    transform: rotate(45deg);
-}
+
 .arrow:hover {
     opacity: 1;
     background-color: #cccccc;
@@ -249,7 +267,6 @@ body {
 .right-arrow {
     right: 0;
     transform: translate(50%,-50%);
-
 }
 
 .terceiro-banner {
@@ -258,6 +275,7 @@ body {
     
     margin-top: 1.1rem;
 }
+
 .terceiro-banner img {
     width: 38.375rem;
 }
@@ -267,7 +285,6 @@ body {
     width: 77.4rem;
 }
 
-
 .categorias-em-destaque p{
     font: 1.125rem bold Helvetica,Arial,sans-serif;
     font-weight: bold;
@@ -275,7 +292,7 @@ body {
     padding: 1rem;
 }
 
-.carrossel-container {
+.carrossel-categorias-container {
     position: relative;
 }
 
@@ -284,25 +301,60 @@ body {
     position: relative;
     height: 11.5rem;
 }
+
 .sliders-categorias {
-    transition: transform 1s .3s;
+    transition: transform .5s;
     display: flex;
 }
+
 .sliders-categorias img {
     height: 10.6rem;
     width: auto;
     margin: 0 .4rem;
 }
-.arrow-categorias:nth-child(2) img{
-    transform: translateX(-14%);
-    
-}
-.arrow-categorias:last-child img{
-   transform: translateX(14%);
-   
-}
 
-.mega-oferta-banner img {
+.mega-oferta-banner {
     margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.mega-oferta-banner img {
     width: 50%;
 }
+
+.relogio-container {
+    display: flex;
+    align-items: center;
+}
+
+.relogio {
+    position: relative;
+    padding: 0 1rem;
+}
+.relogio svg {
+    transform: rotateY(180deg) rotate(90deg);
+}
+.relogio-path {
+    transition: all 1s linear 0s;
+}
+.relogio span {
+    position: absolute;
+    top: 50%;
+    font-family: Helvetica, Arial, sans-serif;
+    color: rgb(128, 128, 128);
+}
+.relogio span:nth-child(2) {
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 1.875rem;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.relogio span:nth-child(3) {
+    font-size: 1.375rem;
+    font-weight: 500;
+    right: -2%;
+    transform: translateY(-50%);
+}
+
+

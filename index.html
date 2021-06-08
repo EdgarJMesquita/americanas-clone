@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="/imagens/favicon.webp" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/styles/style.css">
-    <script defer src="/js/app.js"></script>
+    <script defer type="module" src="/js/index.js"></script>
 </head>
 <body>
     <div id="app">
@@ -17,24 +17,25 @@
             </div>
             <div class="main-header">
                 <div class="search-container">
-                    <img id="logo" src="/imagens/logo.svg" alt="teste">
+                    <img id="logo" src="/imagens/navbar/logo.svg" alt="americanas logo">
                     <div class="search-box">
                         <input type="text" placeholder="busque aqui o seu produto"/>
-                        <img id="lupa" src="/imagens/Lupa.svg" alt="lupa">
+                        <img id="lupa" src="/imagens/navbar/lupa.svg" alt="lupa">
                     </div>
                     <div class="user-icon-container">
-                        <img src="/imagens/user.svg" alt="">
+                        <img src="/imagens/navbar/user.svg" alt="user">
                         <p>olá, faça seu login ou cadastre-se</p>
                     </div>
                     <div class="icons">
-                        <img class="store" src="/imagens/store.svg" alt="store">
-                        <img class="heart" src="/imagens/heart.svg" alt="heart">
-                        <img class="basket" src="/imagens/basket.svg" alt="cesta">
+                        <img class="store" src="/imagens/navbar/store.svg" alt="store">
+                        <img class="heart" src="/imagens/navbar/emptyheart.svg" alt="heart">
+                        <img class="basket" src="/imagens/navbar/basket.svg" alt="cesta">
                     </div>
                 </div>
                 <div class="sub-links">
                     <div class="informe-cep">
-                        <p>informe seu CEP</p>
+                        <img src="/imagens/navbar/localizacao.svg" alt="localização">
+                        <span> informe seu CEP</span>
                     </div>
                     <div class="main-links">
                         <a href="#">para empresas</a>
@@ -44,7 +45,7 @@
                         <a href="#">americanas social</a>
                         <a href="#">produtos internacionais</a>
                         <a href="#">mais por menos</a>
-                        <a href="#"><img class="a" src="/imagens/a.svg" alt="a">oferta do dia</a>        
+                        <a href="#"><img class="a" src="/imagens/navbar/a.svg" alt="a">oferta do dia</a>        
                     </div>
                 </div>
             </div>
@@ -56,7 +57,7 @@
                         <div></div>
                     </div>
                     <span>compre por departamento</span>
-                    <img id="arrow-down" src="/imagens/arrow-right.svg" alt="arrow">
+                    <img id="arrow-down" src="/imagens/navbar/arrow-down.svg" alt="arrow down">
                 </div>
                 <a href="#">mercado</a>
                 <a href="#">celulares</a>
@@ -70,13 +71,28 @@
         </header>
         <div class="main-content">
             <img src="/imagens//RELAXA_HEADER_HOME.webp" alt="Relaxa">
-            <div class="carrossel">
-                <div class="arrow-ofertas arrow left-arrow" data-name="-1">
-                    <img src="/imagens/arrow-left.svg" data-name="-1" alt="Left">
+            <div class="carrossel-ofertas-container">
+                <div class="carrossel-ofertas">
+                    <div class="sliders-ofertas">
+                        <img src="/imagens/carrossel/06.06_home_amundo_destaque_desk_vemai.webp" alt="Carrossel images">
+                        <img src="/imagens/carrossel/193621428_800201304224602_6302577973515862444_n.webp" alt="Carrossel images">
+                        <img src="/imagens/carrossel/2021.06.02-02-Samsung-SSG-GalaxyA52_americanas-home-destaque-desktop-1250x313.webp" alt="Carrossel images">
+                        <img src="/imagens/carrossel/DIADOSNAMORADOS_CARTAO_HOME_DESK.webp" alt="Carrossel images">
+                        <img src="/imagens/carrossel/encarte_desk_namorados.webp" alt="Carrossel images">
+                        <img src="/imagens/carrossel/HOME-acessorios-DESK.webp" alt="Carrossel images">
+                        <img src="/imagens/carrossel/HOME-DESK-Banners_Esportes_28-051.webp" alt="Carrossel images">
+                        <img src="/imagens/carrossel/HOME-DESK-LIVROS-31-05.webp" alt="Carrossel images">
+                        <img src="/imagens/carrossel/HOME-DESK-MOVEIS-31MAIO1.webp" alt="Carrossel images">
+                        <img src="/imagens/carrossel/MICROSOFT-M365-americanas-home-destaque-desktop-1250x313.webp" alt="Carrossel images">
+                        <img src="/imagens/carrossel/NAMORADOS_HOME_DESTAQUEDESK_v2.webp" alt="Carrossel images">
+                        <img src="/imagens/carrossel/Soub_AppHour_02.06.21_Acom_desk.webp" alt="Carrossel images">
+                    </div>
                 </div>
-                <img id="carrossel-img" src="/imagens/carrossel/06.06_home_amundo_destaque_desk_vemai.webp" alt="Carrossel images">
-                <div class="arrow-ofertas arrow right-arrow" data-name="1">
-                    <img src="/imagens/arrow-right.svg" data-name="1" alt="Right">
+                <div class="arrow-ofertas arrow left-arrow" data-value="-1">
+                    <img src="/imagens/arrow-left.svg" data-value="-1" alt="Left">
+                </div>
+                <div class="arrow-ofertas arrow right-arrow" data-value="1">
+                    <img src="/imagens/arrow-right.svg" data-value="1" alt="Right">
                 </div>
             </div>
             <div class="terceiro-banner">
@@ -88,7 +104,7 @@
             </div>
             <div class="categorias-em-destaque">
                 <p>categorias em destaque</p>
-                <div class="carrossel-container">  
+                <div class="carrossel-categorias-container">  
                     <div class="carrossel-categorias">
                         <div class="sliders-categorias">
                             <img src="/imagens/categorias em destaque/alimentos.webp" alt="alimentos">
@@ -117,16 +133,49 @@
                             <img src="/imagens/categorias em destaque/tvs.webp" alt="tvs">
                         </div>
                     </div>
-                    <div class="arrow-categorias arrow right-arrow" data-name="-1">
-                        <img src="/imagens/arrow-right.svg" data-name="-1" alt="Right">
+                    <div class="arrow-categorias arrow left-arrow" data-name="-1">
+                        <img src="/imagens/arrow-left.svg" data-name="-1" alt="Left">
                     </div>
-                    <div class="arrow-categorias arrow left-arrow" data-name="1">
-                        <img src="/imagens/arrow-left.svg" data-name="1" alt="Left">
+                    <div class="arrow-categorias arrow right-arrow" data-name="1">
+                        <img src="/imagens/arrow-right.svg" data-name="1" alt="Right">
                     </div>
                 </div>
             </div>
             <div class="mega-oferta-banner">
                 <img src="/imagens/MEGAOFERTA-DESK.webp" alt="e">
+                <div class="relogio-container">
+                    <div class="relogio">
+                        <!-- <img id="relogio-1" src="/imagens/relogios/relogio-1.svg" alt="relogio1"> -->
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="80"  height="80" >
+                            <g fill="none">
+                                <circle cx="50" cy="50" r="45" stroke="#DDDDDD" fill="none" stroke-width="10px"></circle>
+                                <path id="relogio-1" class="relogio-path" stroke-dasharray="277 282" d=" M 50, 50 m -45, 0 a 45,45 0 1,0 90,0 a 45,45 0 1,0 -90,0 " class="count-down-element__CircleRemaining-sc-1iwtdpi-4 xqlqF" stroke="#E60014" fill="none" stroke-width="10px"></path>
+                            </g>
+                        </svg>
+                        <span id="relogio-txt-1">23</span>
+                        <span>h</span>
+                    </div>
+                    <div class="relogio">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="80"  height="80" >
+                            <g fill="none">
+                                <circle cx="50" cy="50" r="45" stroke="#DDDDDD" fill="none" stroke-width="10px"></circle>
+                                <path id="relogio-2" class="relogio-path" stroke-dasharray="277 282" d=" M 50, 50 m -45, 0 a 45,45 0 1,0 90,0 a 45,45 0 1,0 -90,0 " class="count-down-element__CircleRemaining-sc-1iwtdpi-4 xqlqF" stroke="#E60014" fill="none" stroke-width="10px"></path>
+                            </g>
+                        </svg>
+                        <span id="relogio-txt-2">59</span>
+                        <span>m</span>
+                    </div>
+                    <div class="relogio">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="80"  height="80" >
+                            <g fill="none">
+                                <circle cx="50" cy="50" r="45" stroke="#DDDDDD" fill="none" stroke-width="10px"></circle>
+                                <path id="relogio-3" class="relogio-path" stroke-dasharray="282 282" d=" M 50, 50 m -45, 0 a 45,45 0 1,0 90,0 a 45,45 0 1,0 -90,0 " class="count-down-element__CircleRemaining-sc-1iwtdpi-4 xqlqF" stroke="#E60014" fill="none" stroke-width="10px"></path>
+                            </g>
+                        </svg>
+                        <span id="relogio-txt-3">59</span>
+                        <span>s</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
