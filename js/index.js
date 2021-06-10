@@ -1,9 +1,9 @@
 
     import CarrosselOfertas from './carrosseis/CarrosselOfertas.js';
     import CarrosselCategorias from './carrosseis/CarrosselCategorias.js'
-    import Relogio from './Relogio.js'
+    import Contador from './Contador.js'
 
-    Relogio.start()
+    Contador.start()
     CarrosselOfertas.start()
     CarrosselCategorias.start();
 

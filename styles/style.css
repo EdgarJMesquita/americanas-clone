@@ -47,6 +47,8 @@ body {
 }
 
 .search-box input {
+    width: 100%;
+    height: 100%;
     outline: none;
     border: none;
     color: #666;
@@ -326,35 +328,40 @@ body {
 .relogio-container {
     display: flex;
     align-items: center;
+    gap: 1rem;
 }
 
 .relogio {
-    position: relative;
-    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: .2rem;
 }
-.relogio svg {
+
+.relogio .svg-container{
+    position: relative;
+    
+}
+.relogio .svg-container svg {
     transform: rotateY(180deg) rotate(90deg);
 }
 .relogio-path {
     transition: all 1s linear 0s;
 }
 .relogio span {
-    position: absolute;
-    top: 50%;
     font-family: Helvetica, Arial, sans-serif;
     color: rgb(128, 128, 128);
 }
-.relogio span:nth-child(2) {
+.relogio .svg-container span {
+    position: absolute;
+    top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     font-size: 1.875rem;
-    font-family: Helvetica, Arial, sans-serif;
+    
 }
-.relogio span:nth-child(3) {
+.relogio span {
     font-size: 1.375rem;
     font-weight: 500;
-    right: -2%;
-    transform: translateY(-50%);
 }
 
 
