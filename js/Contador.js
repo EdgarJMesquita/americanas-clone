@@ -1,66 +1,62 @@
-class Relogio {
-    constructor(id,interval,horaFormato,horaAtual){
-        this.id = id
-        this.interval = interval
-        this.horaFormato = horaFormato  // Hora, Minutos ou Segundos
+
+class UnidadeTempo {
+    constructor(id,horaAtual,horaFormato) {
+        this.path = document.querySelector(`#relogio-${id}`)
+        this.text = document.querySelector(`#relogio-txt-${id}`)
         this.count = horaAtual
+        this.horaFormato = horaFormato
     }
-
     start(){
-        const path = document.querySelector(`#relogio-${this.id}`)
-        const txt = document.querySelector(`#relogio-txt-${this.id}`)
-
-        path.setAttribute('stroke-dasharray',`${this.count*(283/this.horaFormato)} 283`)
-        txt.textContent = (this.count.toString()).padStart(2,'0')
-        
-        setInterval(()=>{
-            
-            path.setAttribute('stroke-dasharray',`${this.count*(283/this.horaFormato)} 283`)
-            txt.textContent = (this.count.toString()).padStart(2,'0')
-            
-            this.count--
-
-            if(this.count<0) this.count = this.horaFormato-1
-        },this.interval)
-
+        this.path.setAttribute('stroke-dasharray',`${this.count*(283/this.horaFormato)} 283`)
+        this.text.textContent = (this.count.toString()).padStart(2,'0')
+    }
+    move(){
+        this.count--
+        if(this.count<0) this.count = this.horaFormato-1
+        this.path.setAttribute('stroke-dasharray',`${this.count*(283/this.horaFormato)} 283`)
+        this.text.textContent = (this.count.toString()).padStart(2,'0')
     }
 }
 
 const Contador = {
     start(){
-        
-        if(!localStorage.time) {
-            let date = new Date()
-            let Horas = date.getHours()
-            let Minutos = date.getMinutes()
-            let Segundos = date.getSeconds()
 
-            localStorage.setItem('time',JSON.stringify({Horas,Minutos,Segundos}))
+        if(!localStorage.time){
+            let dataAtual = new Date()
+            localStorage.setItem('time',JSON.stringify({ 
+                H: dataAtual.getHours(),
+                M: dataAtual.getMinutes(),
+                S: dataAtual.getSeconds()
+            }))
         }
+
+        const { H, M, S } = JSON.parse(localStorage.getItem('time'))
+
+        const Horas = new UnidadeTempo('horas',H,24)
+        const Minutos = new UnidadeTempo('minutos',M,60)
+        const Segundos = new UnidadeTempo('segundos',S,60)
+
+        Horas.start()
+        Minutos.start()
+        Segundos.start()
+       
+        setInterval(()=>{
+
+            Segundos.move()
+
+            if(Segundos.count==59) Minutos.move()
+
+            if(Minutos.count==59 && Segundos.count==59) Horas.move()
             
-        const { Horas, Minutos, Segundos } = JSON.parse(localStorage.getItem('time'))
-
-        console.log(`${Horas}:${Minutos}:${Segundos}`)
-
-        const Hora = new Relogio('horas', 3600000, 24 ,Horas)
-        const Minuto = new Relogio('minutos', 60000, 60 ,Minutos)
-        const Segundo = new Relogio('segundos', 1000, 60 ,60)
-
-        Hora.start()
-        Minuto.start()
-        Segundo.start()
+        },1000)
 
         window.onbeforeunload = ()=>{
-           let horaSalva = {
-               Horas: Hora.count,
-               Minutos: Minuto.count,
-               Segundos: Segundo.count
-           }
-           localStorage.setItem('time',JSON.stringify(horaSalva))
-       } 
+            localStorage.setItem('time',JSON.stringify({
+                H: Horas.count,
+                M: Minutos.count,
+                S: Segundos.count
+            }))
+        }
     }
 }
-
 export default Contador
-
-
