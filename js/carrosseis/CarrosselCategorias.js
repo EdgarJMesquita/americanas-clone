@@ -4,9 +4,9 @@ const CarrosselCategorias = {
     posicoes: [0,-1265,-2525],
     sliders: document.querySelector('.sliders-categorias'),
 
-    move(a){
+    move(index){
     
-        this.index+=Number(a)
+        this.index+=Number(index)
 
         if(this.index<0) this.index = this.posicoes.length-1;
         if(this.index>this.posicoes.length-1) this.index=0
